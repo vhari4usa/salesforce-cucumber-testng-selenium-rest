@@ -22,7 +22,7 @@ public class UIUtils {
     public void type(WebElement element, String value, String elementName, String page){
 
         try{
-            boolean elementClickable = WaitUntilClickable(element, Integer.valueOf(Config.properties.getProperty("LONGWAIT")));
+           // boolean elementClickable = WaitUntilClickable(element, Integer.valueOf(Config.properties.getProperty("LONGWAIT")));
             highlightElement(element);
             MouseMoveToElement(element);
             element.sendKeys(value);
@@ -38,7 +38,7 @@ public class UIUtils {
 
     public void clickElement(WebElement element, String elementName, String page){
         try{
-            boolean elementClickable = WaitUntilClickable(element, Integer.valueOf(Config.properties.getProperty("LONGWAIT")));
+            //boolean elementClickable = WaitUntilClickable(element, Integer.valueOf(Config.properties.getProperty("LONGWAIT")));
             highlightElement(element);
             MouseMoveToElement(element);
             //scrollToElement(element);
