@@ -2,6 +2,7 @@ package com.open.hotel.pages;
 
 import com.open.hotel.logger.LoggerClass;
 import com.open.hotel.config.Config;
+import com.open.hotel.security.Security;
 import com.open.hotel.threadVariables.VariableManager;
 import com.open.hotel.uiUtils.UIUtils;
 import org.openqa.selenium.WebDriver;
@@ -16,11 +17,13 @@ public class Login  extends UIUtils {
 
 	WebDriver driver = null;
 	String pageName = "Login Page";
-	@FindBy(how = How.ID, using = "username")
-	WebElement UserName;
+	@FindBy(how = How.NAME, using = "username")
+	WebElement username;
+	//@FindBy(how = How.ID, using = "username")
+	//WebElement UserName;
 	@FindBy(how =How.ID, using = "password")
 	WebElement Password;
-	@FindBy(how =How.ID, using = "login")
+	@FindBy(how =How.ID, using = "Login")
 	WebElement Login;
 	@FindBy(how =How.ID, using = "/html/body/table[2]/tbody/tr[1]/td[2]/a[4]")
 	WebElement LogOut;
@@ -42,8 +45,10 @@ public class Login  extends UIUtils {
 	}
 
 	public void login(String userName, String password) throws Exception {
-		type(UserName, userName,"UserName", this.pageName);
-		type(Password, password,"Password", this.pageName);
+		Security security = new Security();
+		String decriptedpswd = security.decryptPassword(password);
+		type(username, userName,"UserName", this.pageName);
+		type(Password, decriptedpswd,"Password", this.pageName);
 		clickElement(Login, "Login", this.pageName);
 	}
 
