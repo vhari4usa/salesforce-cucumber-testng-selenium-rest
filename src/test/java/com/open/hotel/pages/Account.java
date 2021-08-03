@@ -18,12 +18,17 @@ public class Account extends UIUtils {
 	WebDriver driver = null;
 	String pageName = "Account Page";
 
-	@FindBy(how = How.XPATH, using = "/html/body/div[4]/div[1]/section/div[1]/div[1]/one-appnav/div/one-app-nav-bar/nav/div/one-app-nav-bar-item-root[3]/a/span")
+	@FindBy(how = How.XPATH, using = "//*[@id='Account_Tab']/a")
 	WebElement Account;
 
-	@FindBy(how = How.XPATH, using = "//*[@id=\"brandBand_1\"]/div/div/div/div/div[1]/div[1]/div[2]/ul/li[1]/a/div")
+	@FindBy(how = How.NAME, using = "new")
 	WebElement CreateAccountNew;
 
+	@FindBy(how = How.NAME, using = "acc2")
+	WebElement AccountName;
+
+	@FindBy(how = How.NAME, using = "save")
+	WebElement SaveButton;
 
 	public Account(){
 		this.driver = (WebDriver) VariableManager.getInstance().getVariables().getVar("driver");
@@ -34,7 +39,15 @@ public class Account extends UIUtils {
 		clickElement(Account, "Account", this.pageName);
 	}
 
-	public void CreatAccount(){
+	public void CreateNewAccountMandatoryFirlds(){
 		clickElement(CreateAccountNew, "CreateAccountNew", this.pageName);
+		type(AccountName, "This From Selenium Test","AccountName", this.pageName);
+		clickElement(SaveButton, "SaveButton", this.pageName);
+	}
+
+	public void CreateNewAccountAllFirlds(){
+		clickElement(CreateAccountNew, "CreateAccountNew", this.pageName);
+		type(AccountName, "This From Selenium Test","AccountName", this.pageName);
+		clickElement(SaveButton, "SaveButton", this.pageName);
 	}
 }

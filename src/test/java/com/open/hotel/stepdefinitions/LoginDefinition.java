@@ -86,8 +86,8 @@ public class LoginDefinition {
 		login = new Login();
 	}
 
-	@Given("User is able Launch the hotel application")
-	public void user_is_able_Launch_the_hotel_application () throws InterruptedException {
+	@Given("User is able Launch the Salesforce application")
+	public void user_is_able_Launch_the_Salesfoce_application () throws InterruptedException {
 		login.lauchApplication();
 	}
 	

@@ -32,8 +32,13 @@ public class AccountDefinition {
         account.ClickAccountMenu();
     }
 
-    @Then("Create New Account")
-    public void Create_New_Account() throws Exception {
-        account.CreatAccount();
+    @Then("Create New Account with Mandatory")
+    public void Create_New_Account_MandatoryFirlds() throws Exception {
+        account.CreateNewAccountMandatoryFirlds();
+    }
+
+    @Then("Create New Account with All Fields")
+    public void Create_New_Account_AllFields() throws Exception {
+        account.CreateNewAccountAllFirlds();
     }
 }
